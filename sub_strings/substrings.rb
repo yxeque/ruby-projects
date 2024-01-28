@@ -1,23 +1,13 @@
 
 def substrings(text, dictionary)
   text = text.downcase
-  substring_counts = {}
+  substring_counts = Hash.new(0)
 
   dictionary.each do |substring|
-    index = 0
-    count = 0
-
-    while index < text.length
-      index = text.index(substring, index)
-      break if index.nil?
-      count += 1
-      index += substring.length
-    end
-
-    substring_counts[substring] = count if count > 0
+    substring_counts[substring] += text.scan(substring).size
   end
 
-  return substring_counts
+  substring_counts
 end
 
 dictionary = ["below", "down", "go", "going", "horn", "how", "howdy", "it", "i", "low", "own", "part", "partner", "sit"]
