@@ -60,3 +60,28 @@ def stock_picker(prices)
   results.map {|price, days| days} # Extracts the days from the best pair [1, 4] for some reason Bard insists that the best pair is [7, 4] (wrong). TL;DR - I don't know how this works :3
 end
 ```
+
+## Project: Bubble Sort
+
+(28-01-24)
+
+- This was one of the easier to understand project. That being said I still didn't figure it all out completely on my own, though I think I'd be able to recreate this from memory more easily, than the other basic ruby algorithm projects here. This one also doesn't use any fancy premade ruby methods (which the project forbids).
+
+```ruby
+def bubble_sort(array)
+  swapped = true # Initializes a flag that tracks whether a swap occurs in each
+  while swapped # Continues looping until all swaps are true meaning the array is sorted
+    swapped = false # Resets the flag for each iteration
+    (array.length - 1).times do |i| # Iterates `array.length - 1` times (number of total elements in the array) minus one - because the largest element in a bubble sort is already in its correct place (It just happens, I don't know how either)
+      if array[i] > array[i + 1] # Compares current element (array[i]) to the next element (array[i + 1])
+        # If current element is greater than the next element they are in the wrong order, meaning they need to swap positions
+        array[i], array[i + 1] = array[i + 1], array[i] # Swaps position using simultaneous assignment (Just found out about this), Basically the same as:
+        # array[i] = array[i + 1] and
+        # array[i + 1] = array[i]
+        swapped = true
+      end
+    end
+  end
+  array
+end
+```
