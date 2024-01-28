@@ -1,4 +1,3 @@
-
 def substrings(text, dictionary)
   text = text.downcase
   substring_counts = Hash.new(0)
